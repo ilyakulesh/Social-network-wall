@@ -1,8 +1,26 @@
 body {
-    padding: 20px;
+    padding: 0px;
+    margin: 0px;
     background-color: #eceef0;
     color: #050503;
     font-family: 'Roboto', sans-serif;
+}
+
+.nav-bar {
+    overflow: hidden;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 13px 0px 10px 13px;
+}
+
+.nav-bar form {
+    text-align: center;
+}
+
+#data-container {
+    margin-top: 70px;
 }
 
 .user-block {

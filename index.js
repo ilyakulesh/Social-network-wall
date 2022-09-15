@@ -2,6 +2,23 @@ const users_URL = 'https://jsonplaceholder.typicode.com/users';
 
 const dataContainer = document.querySelector('#data-container');
 
+const navBar = document.createElement('div');
+navBar.className = 'nav-bar';
+
+const searchForm = document.createElement('form');
+searchForm.className = 'search-form';
+
+const searchInput = document.createElement('input');
+searchInput.setAttribute('type','text');
+searchInput.setAttribute('placeholder', 'Find user...');
+
+const searchButton = document.createElement('button');
+searchButton.setAttribute('type','submit');
+
+searchForm.append(searchInput, searchButton);
+navBar.append(searchForm);
+document.body.append(navBar);
+
 // Функция создания юзеров
 const createUsers = (name, email, website) => {
     const userBlock = document.createElement('div');
