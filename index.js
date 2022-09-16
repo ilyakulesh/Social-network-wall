@@ -1,4 +1,5 @@
 const users_URL = 'https://jsonplaceholder.typicode.com/users';
+const avatars_URL = 'https://avatars.dicebear.com/api/avataaars/'
 
 const dataContainer = document.querySelector('#data-container');
 
@@ -26,7 +27,7 @@ const createUsers = (name, email, website) => {
 
     const userPicture = document.createElement('img');
     userPicture.className = 'user-picture';
-    userPicture.src = './img/1.jpg';
+    userPicture.src = `${avatars_URL}${email}.svg`;
     
     const userName = document.createElement('p');
     userName.className = 'user-name';
