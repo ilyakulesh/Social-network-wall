@@ -10,6 +10,7 @@ const searchForm = document.createElement('form');
 searchForm.className = 'search-form';
 
 const searchInput = document.createElement('input');
+searchInput.className = 'search-input';
 searchInput.setAttribute('type','text');
 searchInput.setAttribute('placeholder', 'Find user...');
 
@@ -71,11 +72,9 @@ const getAllUsers = () => {
         })
         .then((users) => {
             users.forEach((user) => {
-                console.log('username',user.name);
                 const usersHTML = createUsers(user.name, user.email, user.website);
                 dataContainer.append(usersHTML);
             })
-            console.log('users', users);
         })
         .catch((error) => {
             console.log('error', error);
@@ -86,3 +85,22 @@ const getAllUsers = () => {
 };
 
 getAllUsers();
+
+// Моментальный поиск юзеров
+document.querySelector('.search-input').oninput = function() {
+    let input = this.value.trim().toUpperCase();
+    const userNames = document.querySelectorAll('.user-name');
+    if (input != '') {
+        userNames.forEach((name) => {
+            if (name.innerText.toUpperCase().search(input) == -1) {
+                name.closest('div').style.display = 'none';
+            } else {
+                name.closest('div').style.display = '';
+            }
+        })
+    } else {
+        userNames.forEach((name) => {
+            name.closest('div').style.display = '';
+        });
+    }
+};
