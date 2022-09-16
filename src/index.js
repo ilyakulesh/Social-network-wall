@@ -1,3 +1,5 @@
+import "../index.css";
+
 const users_URL = 'https://jsonplaceholder.typicode.com/users';
 const avatars_URL = 'https://avatars.dicebear.com/api/avataaars/'
 
