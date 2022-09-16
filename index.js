@@ -1,6 +1,25 @@
 const users_URL = 'https://jsonplaceholder.typicode.com/users';
+const avatars_URL = 'https://avatars.dicebear.com/api/avataaars/'
 
 const dataContainer = document.querySelector('#data-container');
+
+const navBar = document.createElement('div');
+navBar.className = 'nav-bar';
+
+const searchForm = document.createElement('form');
+searchForm.className = 'search-form';
+
+const searchInput = document.createElement('input');
+searchInput.className = 'search-input';
+searchInput.setAttribute('type','text');
+searchInput.setAttribute('placeholder', 'Find user...');
+
+const searchButton = document.createElement('button');
+searchButton.setAttribute('type','submit');
+
+searchForm.append(searchInput, searchButton);
+navBar.append(searchForm);
+document.body.append(navBar);
 
 // Функция создания юзеров
 const createUsers = (name, email, website) => {
@@ -9,7 +28,7 @@ const createUsers = (name, email, website) => {
 
     const userPicture = document.createElement('img');
     userPicture.className = 'user-picture';
-    userPicture.src = './img/1.jpg';
+    userPicture.src = `${avatars_URL}${email}.svg`;
     
     const userName = document.createElement('p');
     userName.className = 'user-name';
@@ -53,11 +72,9 @@ const getAllUsers = () => {
         })
         .then((users) => {
             users.forEach((user) => {
-                console.log('username',user.name);
                 const usersHTML = createUsers(user.name, user.email, user.website);
                 dataContainer.append(usersHTML);
             })
-            console.log('users', users);
         })
         .catch((error) => {
             console.log('error', error);
@@ -68,3 +85,22 @@ const getAllUsers = () => {
 };
 
 getAllUsers();
+
+// Моментальный поиск юзеров
+document.querySelector('.search-input').oninput = function() {
+    let input = this.value.trim().toUpperCase();
+    const userNames = document.querySelectorAll('.user-name');
+    if (input != '') {
+        userNames.forEach((name) => {
+            if (name.innerText.toUpperCase().search(input) == -1) {
+                name.closest('div').style.display = 'none';
+            } else {
+                name.closest('div').style.display = '';
+            }
+        })
+    } else {
+        userNames.forEach((name) => {
+            name.closest('div').style.display = '';
+        });
+    }
+};
