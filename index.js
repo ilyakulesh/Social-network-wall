@@ -1,12 +1,8 @@
-import "../index.css";
-import { createUsers } from "./create-users";
-import { navBar } from "./nav-bar";
+import "./index.css";
+import { App } from "./src/modules/app";
 
-const navBarResult = new navBar;
-document.body.append(navBarResult.createNavBar());
-
-const resultUser = new createUsers();
-resultUser.getAllUsers();
+const app = new App();
+app.run();
 
 // Моментальный поиск юзеров
 document.querySelector('.search-input').oninput = function() {

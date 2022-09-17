@@ -1,4 +1,5 @@
-import { toggleLoader } from "./core/modules"; 
+import { toggleLoader } from "../core/index"; 
+
 const users_URL = 'https://jsonplaceholder.typicode.com/users';
 const dataContainer = document.querySelector('#data-container');
 
