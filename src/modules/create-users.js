@@ -8,9 +8,10 @@ export class createUsers {
     this.avatars_URL = 'https://avatars.dicebear.com/api/avataaars/'
 	}
 
-    #createUserBlock(name, email, website) {
+    #createUserBlock(name, email, id) {
 	const userBlock = document.createElement('div');
 	userBlock.className = 'user-block';
+    userBlock.id = id;
 	
     const userPicture = document.createElement('img');
     userPicture.className = 'user-picture';
@@ -24,12 +25,34 @@ export class createUsers {
     userEmail.className = 'user-email';
     userEmail.textContent = email;
 
-    const userWebsite = document.createElement('a');
-    userWebsite.setAttribute('target', '_blank');
-    userWebsite.href = `https://${website}`;
-    userWebsite.textContent = website;
+    const userPosts = document.createElement('button');
+    userPosts.className = 'btn'
+    userPosts.setAttribute('data-path', 'form-popup');
+    userPosts.href = '#';
+    userPosts.textContent = 'See user posts';
 
-    userBlock.append(userPicture, userName, userEmail, userWebsite);
+    const userPhotos = document.createElement('button');
+    userPhotos.className = 'btn'
+    userPhotos.setAttribute('data-path', 'form-popup');
+    userPhotos.href = '#';
+    userPhotos.textContent = 'See user photos';
+
+    const modals = document.createElement('div');
+    modals.className = 'modals';
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay';
+
+    const modalWindow = document.createElement('div');
+    modalWindow.className = 'modal modal--1';
+    modalWindow.setAttribute('data-target', 'form-popup');
+    modalWindow.textContent = 'Модальное окно'
+
+
+    modalOverlay.append(modalWindow);
+    modals.append(modalOverlay);
+
+    userBlock.append(userPicture, userName, userEmail, userPosts, userPhotos, modals);
 
     return userBlock;
     }
@@ -46,7 +69,7 @@ export class createUsers {
             })
             .then((users) => {
                 users.forEach((user) => {
-                    const result = this.#createUserBlock(user.name, user.email, user.website);
+                    const result = this.#createUserBlock(user.name, user.email, user.id);
                     dataContainer.append(result);
                 })
             })
@@ -56,5 +79,6 @@ export class createUsers {
             .finally(() => {
                 toggleLoader();
             })
+            
     }
 };

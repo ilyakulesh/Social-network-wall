@@ -13,15 +13,15 @@ createNavBar() {
     searchInput.setAttribute('placeholder', 'Find user...');
 
     const searchButton = document.createElement('button');
-    searchButton.setAttribute('type','submit');
+    searchButton.setAttribute('disabled', '');
 
     searchForm.append(searchInput, searchButton);
     navBar.append(searchForm);
+
     return navBar;
 }
 
 searchUser() {
-    // Моментальный поиск юзеров
     document.querySelector('.search-input').oninput = function() {
         let input = this.value.trim().toUpperCase();
         const userNames = document.querySelectorAll('.user-name');
