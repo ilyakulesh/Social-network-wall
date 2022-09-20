@@ -134,6 +134,7 @@ body {
 
 .modal--visible {
 	display: block;
+    overflow-y: auto;
 }
 
 /* .modal--1 {
@@ -150,7 +151,8 @@ body {
     margin-right: 5%;
     border: 1px solid #ffffff;
     border-radius: 10px;
-    height: 5%;
+    min-height: 5%;
+    
 }
 
 .user-photo {

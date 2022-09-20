@@ -21,6 +21,7 @@ setTimeout(() => {
     
             document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
             modalOverlay.classList.add('modal-overlay--visible');
+            document.body.style.overflow = 'hidden';
         });
     });
     
@@ -31,6 +32,7 @@ setTimeout(() => {
             modalOverlay.classList.remove('modal-overlay--visible');
             modals.forEach((el) => {
                 el.classList.remove('modal--visible');
+                document.body.style.overflow = 'visible';
             });
         }
     });
