@@ -64,16 +64,6 @@ body {
     border-radius: 10px;
 }
 
-.user-block img {
-    width: 80px; 
-    height: 80px; /* высота картинки, от неё будет зависеть и размер общего блока */
-    border-radius: 50%;
-    object-fit: cover; /* обрезаем края картинки, если они не вместятся в блок */
-    object-position: 0 70; /* тоже обрезка краев */
-    margin: 5px;
-    float: left; /* важный момент. с помощью этого значения, мы показывем браузеру, что блок должен соприкасаться со вторым блоком приемущественно с левой стороны */
-}
-
 .user-block p {
     padding: 6px;
     margin-left: 15px; 
@@ -95,6 +85,16 @@ body {
 
 .user-block button:hover {
     background: #ffffff;
+}
+
+.user-picture {
+    width: 80px; 
+    height: 80px; /* высота картинки, от неё будет зависеть и размер общего блока */
+    border-radius: 50%;
+    object-fit: cover; /* обрезаем края картинки, если они не вместятся в блок */
+    object-position: 0 70; /* тоже обрезка краев */
+    margin: 5px;
+    float: left; /* важный момент. с помощью этого значения, мы показывем браузеру, что блок должен соприкасаться со вторым блоком приемущественно с левой стороны */
 }
 
 .modal-overlay {
@@ -123,6 +123,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	display: none;
+    border-radius: 5px;
 }
 
 .modal-overlay--visible {
@@ -134,4 +135,30 @@ body {
 .modal--visible {
 	display: block;
 }
- 
+
+/* .modal--1 {
+    text-align: center;
+} */
+
+.user-posts {
+    text-align: center;
+    color: #050503;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+    margin: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    height: 5%;
+}
+
+.user-photo {
+    width: 80px; 
+    height: 80px; /* высота картинки, от неё будет зависеть и размер общего блока */
+    border-radius: 50%;
+    object-fit: cover; /* обрезаем края картинки, если они не вместятся в блок */
+    object-position: 0 70; /* тоже обрезка краев */
+    margin: 5px;
+    /* float: left; */
+}

@@ -33,7 +33,7 @@ export class createUsers {
 
     const userPhotos = document.createElement('button');
     userPhotos.className = 'btn'
-    userPhotos.setAttribute('data-path', 'form-popup');
+    userPhotos.setAttribute('data-path', 'me-popup');
     userPhotos.href = '#';
     userPhotos.textContent = 'See user photos';
 
@@ -43,13 +43,17 @@ export class createUsers {
     const modalOverlay = document.createElement('div');
     modalOverlay.className = 'modal-overlay';
 
-    const modalWindow = document.createElement('div');
-    modalWindow.className = 'modal modal--1';
-    modalWindow.setAttribute('data-target', 'form-popup');
-    modalWindow.textContent = 'Модальное окно'
+    const modalWindow1 = document.createElement('div');
+    modalWindow1.className = 'modal modal--1';
+    modalWindow1.setAttribute('data-target', 'form-popup');
+    modalWindow1.textContent = 'Модальное окно1'
 
+    const modalWindow2 = document.createElement('div');
+    modalWindow2.className = 'modal modal--2';
+    modalWindow2.setAttribute('data-target', 'me-popup');
+    modalWindow2.textContent = 'Модальное окно2'
 
-    modalOverlay.append(modalWindow);
+    modalOverlay.append(modalWindow1, modalWindow2);
     modals.append(modalOverlay);
 
     userBlock.append(userPicture, userName, userEmail, userPosts, userPhotos, modals);
@@ -79,6 +83,5 @@ export class createUsers {
             .finally(() => {
                 toggleLoader();
             })
-            
     }
 };
