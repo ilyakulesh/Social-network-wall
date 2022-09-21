@@ -9,6 +9,8 @@ setTimeout(() => {
     console.log('buttons', buttons)
     const modalOverlay = document.querySelector('.modal-overlay ');
     const modals = document.querySelectorAll('.modal');
+    const buttonModal1 = document.querySelector('.btn-modal1');
+    const buttonModal2 = document.querySelector('.btn-modal2');
     
     buttons.forEach((el) => {
         el.addEventListener('click', (e) => {
@@ -26,9 +28,8 @@ setTimeout(() => {
     });
     
     modalOverlay.addEventListener('click', (e) => {
-        console.log(e.target);
     
-        if (e.target == modalOverlay) {
+        if (e.target == modalOverlay || e.target == buttonModal1 || e.target == buttonModal2) {
             modalOverlay.classList.remove('modal-overlay--visible');
             modals.forEach((el) => {
                 el.classList.remove('modal--visible');

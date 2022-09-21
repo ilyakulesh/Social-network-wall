@@ -126,6 +126,13 @@ body {
     border-radius: 5px;
 }
 
+.modal button {
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin: 3px 3px 0px 0px;
+}
+
 .modal-overlay--visible {
 	opacity: 1;
 	visibility: visible;
@@ -136,10 +143,6 @@ body {
 	display: block;
     overflow-y: auto;
 }
-
-/* .modal--1 {
-    text-align: center;
-} */
 
 .user-posts {
     text-align: center;
@@ -157,10 +160,8 @@ body {
 
 .user-photo {
     width: 80px; 
-    height: 80px; /* высота картинки, от неё будет зависеть и размер общего блока */
-    border-radius: 50%;
-    object-fit: cover; /* обрезаем края картинки, если они не вместятся в блок */
-    object-position: 0 70; /* тоже обрезка краев */
+    height: 80px;
+    object-fit: cover;
+    object-position: 0 70;
     margin: 5px;
-    /* float: left; */
 }

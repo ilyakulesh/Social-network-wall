@@ -27,12 +27,14 @@ export class createUsers {
 
     const userPosts = document.createElement('button');
     userPosts.className = 'btn'
+    userPosts.id = id;
     userPosts.setAttribute('data-path', 'form-popup');
     userPosts.href = '#';
     userPosts.textContent = 'See user posts';
 
     const userPhotos = document.createElement('button');
     userPhotos.className = 'btn'
+    userPhotos.id = id;
     userPhotos.setAttribute('data-path', 'me-popup');
     userPhotos.href = '#';
     userPhotos.textContent = 'See user photos';
@@ -46,12 +48,22 @@ export class createUsers {
     const modalWindow1 = document.createElement('div');
     modalWindow1.className = 'modal modal--1';
     modalWindow1.setAttribute('data-target', 'form-popup');
-    modalWindow1.textContent = 'Модальное окно1'
+    modalWindow1.textContent = 'Модальное окно1';
+    
+    const buttonModal1 = document.createElement('button');
+    buttonModal1.className = 'btn-modal1'
+    buttonModal1.textContent = 'X';
+    modalWindow1.append(buttonModal1);
 
     const modalWindow2 = document.createElement('div');
     modalWindow2.className = 'modal modal--2';
     modalWindow2.setAttribute('data-target', 'me-popup');
-    modalWindow2.textContent = 'Модальное окно2'
+    modalWindow2.textContent = 'Модальное окно2';
+
+    const buttonModal2 = document.createElement('button');
+    buttonModal2.className = 'btn-modal2'
+    buttonModal2.textContent = 'X';
+    modalWindow2.append(buttonModal2);
 
     modalOverlay.append(modalWindow1, modalWindow2);
     modals.append(modalOverlay);
