@@ -15,6 +15,7 @@ export class App {
         document.body.append(navBarHTML);
 
         this.#navBar.searchUser();
+        this.#navBar.createNoFound();
 
         this.#createUsers.getAllUsers();
     }
