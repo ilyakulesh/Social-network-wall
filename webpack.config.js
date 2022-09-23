@@ -4,14 +4,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: './index.js',
     output: {
         filename: 'build.js',
         path: path.resolve(__dirname, 'build'),
     },
     devServer: {
         static: './build',
-        port: 8080,
+        port: 3005,
         open: true,
     },
     plugins: [
