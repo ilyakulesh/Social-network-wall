@@ -13,10 +13,36 @@ createNavBar() {
     searchInput.setAttribute('placeholder', 'Find user...');
 
     const searchButton = document.createElement('button');
+    searchButton.className = 'search-button';
     searchButton.setAttribute('disabled', '');
 
+    const toggleButton = document.createElement('div');
+    toggleButton.className = 'toggle-button';
+
+    const inputToggle = document.createElement('input');
+    inputToggle.className = 'checkbox';
+    inputToggle.setAttribute('type', 'checkbox');
+    inputToggle.id="chk";
+
+    const labelToggle = document.createElement('label');
+    labelToggle.className = 'label';
+    labelToggle.setAttribute('for', 'chk');
+
+    const toggleMoon = document.createElement('i');
+    toggleMoon.className = 'fas fa-moon';
+
+    const toggleSun = document.createElement('i');
+    toggleSun.className = 'fas fa-sun';
+
+    const toggleBall = document.createElement('div');
+    toggleBall.className = 'ball';
+
+    labelToggle.append(toggleMoon, toggleSun, toggleBall);
+
+    toggleButton.append(inputToggle, labelToggle);
+
     searchForm.append(searchInput, searchButton);
-    navBar.append(searchForm);
+    navBar.append(searchForm, toggleButton);
 
     return navBar;
 }
@@ -38,8 +64,6 @@ searchUser() {
         const userNames = document.querySelectorAll('.user-name');
         if (input != '') {
             userNames.forEach((name) => {
-                // console.log('name', name)
-                // console.log('name.closest', name.closest('div'));
                 if (name.innerText.toUpperCase().search(input) == -1) {
                     name.closest('div').style.display = 'none';
                 } else {
